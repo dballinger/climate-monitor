@@ -1,0 +1,27 @@
+{  
+   "id":null,
+   "orgId":null,
+   "name":"environment",
+   "type":"influxdb",
+   "typeLogoUrl":"",
+   "access":"proxy",
+   "url":"http://influxdb:8086",
+   "password":"",
+   "user":"",
+   "database":"environment",
+   "basicAuth":false,
+   "basicAuthUser":"",
+   "basicAuthPassword":"",
+   "withCredentials":false,
+   "isDefault":false,
+   "jsonData":{  
+      "keepCookies":[  
+
+      ]
+   },
+   "secureJsonFields":{  
+
+   },
+   "version":7,
+   "readOnly":false
+}
