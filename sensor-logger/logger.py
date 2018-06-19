@@ -7,6 +7,10 @@ from bme280 import *
 monitorHost = os.getenv("MONITOR_HOST")
 if monitorHost == None:
     monitorHost = "influxdb"
+pollStr = os.getenv("POLL")
+poll = 30
+if pollStr != None:
+    poll = int(pollStr)
 location = os.getenv("PHYSICAL_LOCATION")
 degrees,hectopascals,humidity = readBME280All()
 print("monitor host: " + monitorHost)
@@ -27,4 +31,4 @@ while True:
     client.write('environment', 'pressure', fields={'value': hectopascals}, tags={'location': location})
     client.write('environment', 'humidity', fields={'value': humidity}, tags={'location': location})
     
-    time.sleep(30)
+    time.sleep(poll)
