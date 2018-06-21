@@ -30,8 +30,8 @@ while True:
     
     iso = time.ctime()
     
-    client.write('environment', 'temperature', fields={'value': degrees}, tags={'location': location, 'host': hostname})
-    client.write('environment', 'pressure', fields={'value': hectopascals}, tags={'location': location, 'host': hostname})
-    client.write('environment', 'humidity', fields={'value': humidity}, tags={'location': location, 'host': hostname})
+    client.write('environment', 'temperature', fields={'value': degrees}, tags={'location': location, 'host': hostName})
+    client.write('environment', 'pressure', fields={'value': hectopascals}, tags={'location': location, 'host': hostName})
+    client.write('environment', 'humidity', fields={'value': humidity}, tags={'location': location, 'host': hostName})
     
     time.sleep(poll)
