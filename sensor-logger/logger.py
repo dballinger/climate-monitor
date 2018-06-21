@@ -7,6 +7,9 @@ from bme280 import *
 monitorHost = os.getenv("MONITOR_HOST")
 if monitorHost == None:
     monitorHost = "influxdb"
+hostName = os.getenv("HOST")
+if hostName == None:
+    hostName = "unknown"
 pollStr = os.getenv("POLL")
 poll = 30
 if pollStr != None:
@@ -27,8 +30,8 @@ while True:
     
     iso = time.ctime()
     
-    client.write('environment', 'temperature', fields={'value': degrees}, tags={'location': location})
-    client.write('environment', 'pressure', fields={'value': hectopascals}, tags={'location': location})
-    client.write('environment', 'humidity', fields={'value': humidity}, tags={'location': location})
+    client.write('environment', 'temperature', fields={'value': degrees}, tags={'location': location, 'host': hostname})
+    client.write('environment', 'pressure', fields={'value': hectopascals}, tags={'location': location, 'host': hostname})
+    client.write('environment', 'humidity', fields={'value': humidity}, tags={'location': location, 'host': hostname})
     
     time.sleep(poll)
